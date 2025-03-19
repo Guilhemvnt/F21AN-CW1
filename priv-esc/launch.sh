@@ -22,5 +22,7 @@ while ! nc -z localhost 2222; do
   sleep 1
 done
 
+ssh-keygen -R "[localhost]:2222" >/dev/null 2>&1
+
 echo "Connecting using $USERNAME..."
 ssh "$USERNAME"@localhost -p 2222
