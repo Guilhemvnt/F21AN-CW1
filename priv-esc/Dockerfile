@@ -14,7 +14,7 @@ RUN useradd -m -s /bin/bash user && echo "user:1234" | chpasswd
 RUN echo "root:rootpasswd" | chpasswd
 
 RUN echo "*/2 * * * * root PYTHONPATH=/tmp/ python3 /root/script.py" >> /etc/crontab
-RUN echo "my password if forgot it: rootpasswd" > /root/toremember.txt && chmod 600 /root/toremember.txt
+RUN echo "my password if forgot it: rootpasswd" > /etc/toremember.txt && chmod 600 /etc/toremember.txt
 RUN echo "import random" > /root/script.py && \
     echo "print(random.randint(1, 100))" >> /root/script.py && \
     chmod 644 /root/script.py
